@@ -518,6 +518,7 @@ class Resource(six.with_metaclass(DeclarativeMetaclass)):
                 if self.skip_row(instance, original):
                     row_result.import_type = RowResult.IMPORT_TYPE_SKIP
                 else:
+                    instance.import_export_row = row 
                     self.validate_instance(instance, import_validation_errors)
                     self.save_instance(instance, using_transactions, dry_run)
                     self.save_m2m(instance, row, using_transactions, dry_run)
